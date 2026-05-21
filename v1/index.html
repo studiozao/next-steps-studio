@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Next Steps Studio — Studio Zao</title>
+<meta name="description" content="A three-week AI incubator for young londoners in South London. Build a venture, develop real skills, and connect with London employers." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --nss-red: #e42544;
+    --nss-black: #0f0f0f;
+    --nss-white: #ffffff;
+    --nss-off-white: #f7f5f2;
+    --nss-mid-grey: #6b6b6b;
+    --nss-light-grey: #e8e6e3;
+
+    --font-display: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --max-w: 1320px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--nss-black);
+    background: var(--nss-off-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ============== INFO DAY BANNER ============== */
+  /* INFO DAY BANNER: remove this block after 3 June 2026 */
+  .info-banner {
+    background: var(--nss-black);
+    color: var(--nss-white);
+    padding: 0.7rem var(--gutter);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 20;
+    border-bottom: 1px solid var(--nss-black);
+  }
+  .info-banner__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .info-banner__pill {
+    background: var(--nss-red);
+    color: var(--nss-white);
+    padding: 0.2rem 0.65rem;
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .info-banner__text { font-weight: 500; }
+  .info-banner__text strong { font-weight: 500; color: var(--nss-white); }
+  /* END INFO DAY BANNER */
+
+  /* ============== NAV ============== */
+  .nav {
+    background: var(--nss-off-white);
+    padding: 1.5rem var(--gutter);
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .nav.scrolled {
+    border-bottom-color: var(--nss-light-grey);
+    background: rgba(247, 245, 242, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav__logo img {
+    height: 28px;
+    width: auto;
+  }
+  .nav__logo-fallback {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  .nav__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+  .nav__title .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--nss-red);
+    border-radius: 50%;
+    margin-right: 0.55rem;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* ============== HERO ============== */
+  .hero {
+    padding: clamp(3rem, 9vw, 7rem) var(--gutter) clamp(3rem, 7vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero__eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero__eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--nss-red);
+  }
+
+  .hero__programme-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.8rem, 7.5vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--nss-black);
+    margin-bottom: 2.8rem;
+    opacity: 0;
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    transition: opacity 0.6s ease 0.2s, letter-spacing 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  }
+  .hero__programme-name::after {
+    content: "";
+    position: absolute;
+    bottom: -0.25em;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--nss-red);
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.85s;
+  }
+  body.loaded .hero__programme-name {
+    opacity: 1;
+    letter-spacing: 0.06em;
+  }
+  body.loaded .hero__programme-name::after { width: 100%; }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    white-space: nowrap;
+  }
+  .hero__title .line {
+    display: inline;
+    overflow: visible;
+  }
+  .hero__title .inner-line {
+    display: inline;
+    transform: none;
+    transition: none;
+  }
+  .hero__title .accent {
+    color: var(--nss-red);
+    font-style: italic;
+  }
+  body.loaded .hero__title { opacity: 1; }
+
+  .hero__tagline {
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    color: var(--nss-mid-grey);
+    max-width: 44ch;
+    line-height: 1.45;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s;
+  }
+  body.loaded .hero__tagline { opacity: 1; transform: none; }
+
+  .hero__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--nss-light-grey);
+    max-width: 880px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s;
+  }
+  body.loaded .hero__meta { opacity: 1; transform: none; }
+  .hero__meta-item .label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nss-mid-grey);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .hero__meta-item .value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    color: var(--nss-black);
+  }
+
+  .hero__cta {
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease 0.85s, transform 0.9s ease 0.85s;
+  }
+  body.loaded .hero__cta { opacity: 1; transform: none; }
+
+  /* CTA button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.05rem 1.8rem;
+    background: var(--nss-black);
+    color: var(--nss-white);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    border: 2px solid var(--nss-black);
+    border-radius: 0;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: var(--nss-red);
+    border-color: var(--nss-red);
+    transform: translateY(-2px);
+  }
+  .btn .arrow { transition: transform 0.3s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--nss-black);
+  }
+  .btn--outline:hover {
+    background: var(--nss-red);
+    color: var(--nss-white);
+    border-color: var(--nss-red);
+  }
+
+    /* ============== SECTION SHELL ============== */
+  section {
+    padding: clamp(4rem, 8vw, 7rem) var(--gutter);
+    position: relative;
+  }
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+    margin-bottom: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .section-eyebrow .num {
+    color: var(--nss-mid-grey);
+    margin-right: 0.1rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    max-width: 22ch;
+    margin-bottom: 1.5rem;
+  }
+  .section-title .accent { color: var(--nss-red); }
+  .section-intro {
+    font-size: 1.1rem;
+    color: var(--nss-mid-grey);
+    max-width: 56ch;
+    line-height: 1.55;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal--delay-1 { transition-delay: 0.1s; }
+  .reveal--delay-2 { transition-delay: 0.2s; }
+  .reveal--delay-3 { transition-delay: 0.3s; }
+  .reveal--delay-4 { transition-delay: 0.4s; }
+
+  /* ============== FOR PARTNERS ============== */
+  .partners-section {
+    background: var(--nss-black);
+    color: var(--nss-white);
+  }
+  .partners-section .section-eyebrow { color: var(--nss-red); }
+  .partners-section .section-title { color: var(--nss-white); }
+  .partners-section .section-intro { color: rgba(255, 255, 255, 0.7); }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    margin-top: 4rem;
+  }
+  @media (max-width: 768px) {
+    .partners-grid { grid-template-columns: 1fr; }
+  }
+  .partners-col h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .partner-item {
+    margin-bottom: 2rem;
+  }
+  .partner-item:last-child { margin-bottom: 0; }
+  .partner-item__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .partner-item__body {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.55;
+    font-size: 0.98rem;
+  }
+  .partner-list {
+    list-style: none;
+  }
+  .partner-list li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .partner-list li:last-child { border-bottom: none; }
+  .partner-list li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--nss-red);
+    border-radius: 50%;
+    margin-top: 0.65rem;
+    flex-shrink: 0;
+  }
+  /* CHALLENGE BRIEF PLACEHOLDER: insert partner brief examples here when available */
+
+  /* ============== PILLARS ============== */
+  .pillars {
+    background: var(--nss-off-white);
+  }
+  .pillars__philosophy {
+    margin: 3rem 0 4rem;
+    padding-left: 2rem;
+    border-left: 3px solid var(--nss-red);
+    max-width: 60ch;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--nss-black);
+    letter-spacing: -0.01em;
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--nss-light-grey);
+    border-left: 1px solid var(--nss-light-grey);
+  }
+  @media (max-width: 968px) { .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+  .pillar {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--nss-light-grey);
+    border-bottom: 1px solid var(--nss-light-grey);
+    background: var(--nss-white);
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  .pillar:hover {
+    background: var(--nss-off-white);
+  }
+  .pillar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--nss-red);
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pillar:hover::before { width: 100%; }
+  .pillar__num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--nss-mid-grey);
+    margin-bottom: 1.5rem;
+  }
+  .pillar__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.015em;
+  }
+  .pillar__body {
+    color: var(--nss-mid-grey);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+
+  /* ============== PROGRAMME STRUCTURE ============== */
+  .structure {
+    background: var(--nss-white);
+  }
+  .weeks {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .week {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding: 3rem 0;
+    border-top: 1px solid var(--nss-light-grey);
+    align-items: start;
+  }
+  .week:last-child { border-bottom: 1px solid var(--nss-light-grey); }
+  @media (max-width: 768px) {
+    .week { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  .week__marker {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 4rem;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--nss-light-grey);
+    position: relative;
+  }
+  .week__marker .label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: var(--nss-red);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .week__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1.05;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .week__body {
+    color: var(--nss-mid-grey);
+    max-width: 65ch;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .week__target {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--nss-off-white);
+    border-left: 3px solid var(--nss-red);
+    max-width: 70ch;
+  }
+  .week__target-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+  .week__target-text {
+    font-size: 0.95rem;
+    color: var(--nss-black);
+    line-height: 1.55;
+  }
+
+  .rhythm {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--nss-black);
+    color: var(--nss-white);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .rhythm { grid-template-columns: 1fr; gap: 1.2rem; }
+  }
+  .rhythm__label {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+  }
+  .rhythm__schedule {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    letter-spacing: -0.005em;
+  }
+  .rhythm__schedule .sep {
+    color: var(--nss-red);
+    margin: 0 0.6rem;
+    font-weight: 800;
+  }
+  .rhythm__note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 0.4rem;
+  }
+
+  /* ============== TIMELINE ============== */
+  .timeline-section {
+    background: var(--nss-off-white);
+  }
+  .timeline {
+    margin-top: 4rem;
+    position: relative;
+    list-style: none;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--nss-light-grey);
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item__marker {
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--nss-light-grey);
+    background: var(--nss-off-white);
+    border-radius: 50%;
+    transition: background 0.5s ease, border-color 0.5s ease, transform 0.5s ease;
+  }
+  .timeline-item.in-view .timeline-item__marker {
+    background: var(--nss-red);
+    border-color: var(--nss-red);
+    transform: scale(1.05);
+  }
+  .timeline-item__date {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-item__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-item__detail {
+    color: var(--nss-mid-grey);
+    font-size: 0.95rem;
+  }
+
+  /* ============== SHOWCASE ============== */
+  .showcase {
+    background: var(--nss-red);
+    color: var(--nss-white);
+    position: relative;
+    overflow: hidden;
+  }
+  .showcase::before {
+    content: "SHOWCASE";
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(8rem, 18vw, 18rem);
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.06);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .showcase__inner {
+    position: relative;
+    z-index: 1;
+  }
+  .showcase .section-eyebrow {
+    color: var(--nss-white);
+  }
+  .showcase .section-eyebrow::before {
+    background: var(--nss-white);
+  }
+  .showcase__date {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    color: var(--nss-white);
+    max-width: 14ch;
+  }
+  .showcase__venue {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--nss-white);
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+  }
+  .showcase__body {
+    max-width: 60ch;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.08rem;
+  }
+
+  /* ============== LOGO ROWS ============== */
+  .logos-section {
+    background: var(--nss-white);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: 0;
+  }
+  .logos-section--partners {
+    background: var(--nss-white);
+    padding-top: 2rem;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--nss-light-grey);
+  }
+  .logos-row li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+  }
+  .logos-row img {
+    max-height: 48px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  .logos-row img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+  .logos-row--funders img {
+    max-height: 56px;
+  }
+  .logo-fallback {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--nss-mid-grey);
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--nss-light-grey);
+    background: var(--nss-white);
+  }
+  .logos-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nss-mid-grey);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  /* ============== ABOUT ============== */
+  .about {
+    background: var(--nss-off-white);
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .about__grid { grid-template-columns: 1fr; }
+  }
+  .about__label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nss-red);
+  }
+  .about__body {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    line-height: 1.35;
+    color: var(--nss-black);
+    letter-spacing: -0.01em;
+    max-width: 50ch;
+  }
+
+  /* ============== CTA ============== */
+  .cta-section {
+    background: var(--nss-black);
+    color: var(--nss-white);
+    text-align: center;
+    padding: clamp(5rem, 10vw, 8rem) var(--gutter);
+  }
+  .cta-section__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-section__title .accent { color: var(--nss-red); font-style: italic; }
+  .cta-section__copy {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 50ch;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .cta-section .btn {
+    background: var(--nss-red);
+    border-color: var(--nss-red);
+    color: var(--nss-white);
+  }
+  .cta-section .btn:hover {
+    background: var(--nss-white);
+    border-color: var(--nss-white);
+    color: var(--nss-black);
+  }
+  .cta-section__email {
+    margin-top: 2rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .cta-section__email a {
+    color: var(--nss-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 1px;
+    transition: border-color 0.25s ease;
+  }
+  .cta-section__email a:hover { border-color: var(--nss-red); }
+
+  /* ============== FOOTER ============== */
+  footer {
+    background: var(--nss-black);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem var(--gutter);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ============== REDUCED MOTION ============== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero__title .inner-line { transform: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INFO DAY BANNER: remove this block after 3 June 2026 -->
+<div class="info-banner" role="region" aria-label="Information Day notice">
+  <div class="info-banner__inner">
+    <span class="info-banner__pill">Info Day</span>
+    <span class="info-banner__text"><strong>3 June 2026 · 10am–12pm</strong> · Roehampton University campus, in-person</span>
+  </div>
+</div>
+<!-- END INFO DAY BANNER -->
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Studio Zao home">
+      <!-- STUDIO ZAO LOGO: nav -->
+      <img src="images/logos/studiozao-logo.png" alt="Studio Zao" onerror="this.outerHTML='<span class=\'nav__logo-fallback\'>Studio Zao</span>'" />
+    </a>
+
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">A Studio Zao Programme</div>
+
+      <div class="hero__programme-name">Next Steps Studio</div>
+
+      <h1 class="hero__title">Build a venture in <span class="accent">three</span> weeks.</h1>
+
+      <p class="hero__tagline">
+        A three-week AI incubator for young Londoners in South London. Tackle real industry problems, build an AI-powered MVP, and pitch your startup for the opportunity to turn your prototype into reality.
+      </p>
+
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="label">Dates</span>
+          <span class="value">22 June – 10 July 2026</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="label">Location</span>
+          <span class="value">Peabody Workspace, SW11</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="label">Cohort</span>
+          <span class="value">15–20 participants</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="label">Cost</span>
+          <span class="value">Free to attend</span>
+        </div>
+      </div>
+
+      <div class="hero__cta">
+        <!-- CTA: update href with EOI form link when live -->
+        <a href="#" class="btn">
+          Register Your Interest
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOR PARTNERS ============== -->
+  <section class="partners-section" id="partners">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-eyebrow"><span class="num">01</span> For Partners</span>
+        <h2 class="section-title">A short, focused way to put fresh thinking against a real challenge.</h2>
+        <p class="section-intro">If you're an employer in South London, here's what working with us looks like, and what you'll get out of it.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partners-col reveal reveal--delay-1">
+          <h3>What we ask for</h3>
+
+          <div class="partner-item">
+            <div class="partner-item__title">The Brief</div>
+            <p class="partner-item__body">A real-world challenge your organisation is sitting with. Open enough for creativity, contained enough that teams can make meaningful progress in three weeks without needing deep internal access.</p>
+          </div>
+
+          <div class="partner-item">
+            <div class="partner-item__title">The Mentor</div>
+            <p class="partner-item__body">A champion who can give 1–2 hours per week for feedback and guidance.</p>
+          </div>
+
+          <div class="partner-item">
+            <div class="partner-item__title">The Pathway</div>
+            <p class="partner-item__body">A commitment to consider participants for internships, apprenticeships, or temporary roles post-programme.</p>
+          </div>
+
+          <!-- CHALLENGE BRIEF PLACEHOLDER: insert partner brief examples here when available -->
+        </div>
+
+        <div class="partners-col reveal reveal--delay-2">
+          <h3>What you get back</h3>
+          <ul class="partner-list">
+            <li>Fresh AI-accelerated perspectives on real operational or strategic challenges</li>
+            <li>Direct access to a motivated, AI-literate cohort</li>
+            <li>Social value and CSR impact in South London</li>
+            <li>An invitation to the live Showcase on 9 July 2026, alongside other London employers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PILLARS / WHAT IT IS ============== -->
+  <section class="pillars" id="about">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-eyebrow"><span class="num">02</span> What is Next Steps Studio</span>
+        <h2 class="section-title">Skills and entrepreneurial mindset first. <span class="accent">Everything else follows.</span></h2>
+      </div>
+
+      <p class="pillars__philosophy reveal reveal--delay-1">
+        The goal isn't a polished startup. It's to produce people who leave with real assets, real confidence, and a credible portfolio of work they built in three weeks.
+      </p>
+
+      <div class="pillars-grid reveal reveal--delay-2">
+        <div class="pillar">
+          <div class="pillar__num">01</div>
+          <h3 class="pillar__title">Real problems</h3>
+          <p class="pillar__body">Partner briefs, not made-up case studies.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__num">02</div>
+          <h3 class="pillar__title">AI-native</h3>
+          <p class="pillar__body">Tools embedded throughout, not bolted on.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__num">03</div>
+          <h3 class="pillar__title">Incubating the person</h3>
+          <p class="pillar__body">Skills and confidence as the primary outcome.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__num">04</div>
+          <h3 class="pillar__title">South London rooted</h3>
+          <p class="pillar__body">Hyper-local employers, community impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROGRAMME STRUCTURE ============== -->
+  <section class="structure">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-eyebrow"><span class="num">03</span> Programme Structure</span>
+        <h2 class="section-title">Three weeks. Three turns of the wheel.</h2>
+      </div>
+
+      <div class="weeks">
+        <article class="week reveal">
+          <div class="week__marker">01<span class="label">Week One</span></div>
+          <div>
+            <h3 class="week__title">Meet the Problem</h3>
+            <p class="week__body">
+              Cohort orientation, team formation, and lean startup methodology. AI tools setup and practical training. Partner brief introductions and problem framing. Customer discovery and user research.
+            </p>
+            <div class="week__target">
+              <span class="week__target-label">Target</span>
+              <span class="week__target-text">Every team has a defined problem, a target user, and an early prototype by Friday.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="week reveal reveal--delay-1">
+          <div class="week__marker">02<span class="label">Week Two</span></div>
+          <div>
+            <h3 class="week__title">Make It Real</h3>
+            <p class="week__body">
+              Customer discovery in the field. Prototype iteration and evidence gathering. Business model development: lean canvas, financials, marketing basics. AI tools applied to data analysis, content, and solution refinement.
+            </p>
+            <div class="week__target">
+              <span class="week__target-label">Target</span>
+              <span class="week__target-text">Teams can articulate a value proposition, have real customer feedback, and understand initial commercial viability.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="week reveal reveal--delay-2">
+          <div class="week__marker">03<span class="label">Week Three</span></div>
+          <div>
+            <h3 class="week__title">Take It Live</h3>
+            <p class="week__body">
+              Pitching masterclass. Pitch deck and demo development. Rehearsals with mentors. Live showcase event. Final day: individual action planning.
+            </p>
+            <div class="week__target">
+              <span class="week__target-label">Target</span>
+              <span class="week__target-text">Every team has presented their venture to the partner who set their brief, received feedback, and agreed next steps. Every participant leaves with a bespoke personal action plan.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rhythm reveal">
+        <div class="rhythm__label">Daily Rhythm</div>
+        <div>
+          <div class="rhythm__schedule">9:30am standup <span class="sep">/</span> working sessions <span class="sep">/</span> 4pm check-in</div>
+          <div class="rhythm__note">Five days a week. Every Friday: playback and mini-showcase.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== KEY DATES TIMELINE ============== -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-eyebrow">Key Dates</span>
+        <h2 class="section-title">From now until showcase.</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">~15 May 2026</div>
+          <div class="timeline-item__title">Expressions of interest open</div>
+          <div class="timeline-item__detail">Register your interest. The full application form goes live at the Information Day.</div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">3 June 2026 · 10am–12pm</div>
+          <div class="timeline-item__title">Information Day</div>
+          <div class="timeline-item__detail">In-person session at Roehampton University campus. Full application form goes live on the day, required to apply.</div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">~8 June 2026</div>
+          <div class="timeline-item__title">Applications close</div>
+          <div class="timeline-item__detail">Final cohort selection follows shortly after.</div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">22 June 2026</div>
+          <div class="timeline-item__title">Programme begins</div>
+          <div class="timeline-item__detail">Day one at Peabody Workspace, Clapham Junction.</div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">9 July 2026</div>
+          <div class="timeline-item__title">Showcase Day</div>
+          <div class="timeline-item__detail">Peabody HQ, Waterloo. Teams pitch to partners and London employers.</div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-item__marker" aria-hidden="true"></span>
+          <div class="timeline-item__date">10 July 2026</div>
+          <div class="timeline-item__title">Programme ends</div>
+          <div class="timeline-item__detail">Personal action planning day. Digital badges awarded via Navigatr.</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============== SHOWCASE DAY ============== -->
+  <section class="showcase" id="showcase">
+    <div class="container showcase__inner">
+      <div class="reveal">
+        <span class="section-eyebrow"><span class="num">05</span> Showcase Day</span>
+        <h2 class="showcase__date">Thursday 9 July 2026</h2>
+        <div class="showcase__venue">Peabody HQ · Waterloo</div>
+        <p class="showcase__body">
+          Teams present their ventures to the partners who set the briefs, alongside other employers and industry leaders. This is a live showcase with real feedback, not a rehearsal. Partners respond, discuss, and identify potential next steps with teams directly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FUNDERS ============== -->
+  <section class="logos-section">
+    <div class="container reveal">
+      <span class="logos-label">Funded by</span>
+      <ul class="logos-row logos-row--funders" role="list">
+        <!-- FUNDER LOGO: South London Partnership — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/slp-logo.png" alt="South London Partnership"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>South London Partnership</span>'" />
+        </li>
+        <!-- FUNDER LOGO: Greater London Authority — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/gla-logo.png" alt="Greater London Authority"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Greater London Authority</span>'" />
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== PROGRAMME PARTNERS ============== -->
+  <section class="logos-section logos-section--partners">
+    <div class="container reveal">
+      <span class="logos-label">Programme Partners</span>
+      <ul class="logos-row" role="list">
+        <!-- PARTNER LOGO: Peabody — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/peabody-logo.png" alt="Peabody"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Peabody</span>'" />
+        </li>
+        <!-- PARTNER LOGO: Google — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/google-logo.png" alt="Google"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Google</span>'" />
+        </li>
+        <!-- PARTNER LOGO: EY Foundation — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/eyf-logo.png" alt="EY Foundation"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>EY Foundation</span>'" />
+        </li>
+        <!-- PARTNER LOGO: Unilever — remove this <li> to remove -->
+        <li>
+          <img src="images/logos/unilever-logo.png" alt="Unilever"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Unilever</span>'" />
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT STUDIO ZAO ============== -->
+  <section class="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="reveal">
+          <span class="about__label">About Studio Zao</span>
+        </div>
+        <p class="about__body reveal reveal--delay-1">
+          Studio Zao is a London-based innovation and entrepreneurship consultancy. Next Steps Studio is delivered by the Studio Zao team with support from mentors and partner champions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2 class="cta-section__title">Want in? <span class="accent">Tell us.</span></h2>
+      <p class="cta-section__copy">
+        Whether you're a young Londoner ready to build something, or an employer with a problem worth solving, we'd like to hear from you.
+      </p>
+      <!-- CTA: update href with EOI form link when live -->
+      <a href="#" class="btn">
+        Register Your Interest
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="cta-section__email">
+        Or get in touch directly: <a href="mailto:keona@studiozao.com">keona@studiozao.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Studio Zao</span>
+    <span>Next Steps Studio</span>
+  </div>
+</footer>
+
+<script>
+  // Hero load
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+  if (document.readyState === 'complete') {
+    document.body.classList.add('loaded');
+  }
+
+  // Sticky nav state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 12) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll-triggered reveals
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal, .timeline-item').forEach(el => el.classList.add('in-view'));
+  }
+</script>
+</body>
+</html>
