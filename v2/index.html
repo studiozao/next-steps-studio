@@ -836,6 +836,43 @@
   letter-spacing: 0.04em;
  }
 
+ /* ============== PARTNER LOGO GROUPS ============== */
+ .partner-logos-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--nss-light-grey);
+ }
+ .partner-logos-row__group {
+  flex: 0 0 auto;
+ }
+ .partner-logos-row__group + .partner-logos-row__group {
+  padding-left: 3rem;
+  border-left: 1px solid var(--nss-light-grey);
+ }
+ .partner-logos-row__group:first-child {
+  padding-right: 3rem;
+ }
+ @media (max-width: 640px) {
+  .partner-logos-row {
+   flex-wrap: wrap;
+   gap: 2rem;
+  }
+  .partner-logos-row__group + .partner-logos-row__group {
+   padding-left: 0;
+   border-left: none;
+   border-top: 1px solid var(--nss-light-grey);
+   padding-top: 1.5rem;
+   width: 100%;
+  }
+  .partner-logos-row__group:first-child {
+   padding-right: 0;
+   width: 100%;
+  }
+ }
+
  .logo-fallback {
   font-family: var(--font-display);
   font-weight: 800;
@@ -1191,15 +1228,15 @@
    </div>
 
    <!-- Partner logo groups -->
-   <div class="reveal" style="margin-top:2rem;display:flex;flex-wrap:nowrap;align-items:flex-start;padding-top:1.5rem;border-top:1px solid var(--nss-light-grey);">
-    <div style="flex:0 0 auto;padding-right:3rem;">
+   <div class="partner-logos-row reveal">
+    <div class="partner-logos-row__group">
      <span class="logos-label">Supported by</span>
      <ul class="logos-row logos-row--funders" role="list" style="border-top:none;padding-top:0;margin-top:0.75rem;align-items:center;">
       <li><img src="images/logos/slp-logo.png" alt="South London Partnership" style="mix-blend-mode:multiply;" onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>South London Partnership</span>'" /></li>
       <li><img src="images/logos/mol-logo.png" alt="Mayor of London" style="max-height:28px;max-width:140px;width:auto;height:auto;" onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Mayor of London</span>'" /></li>
      </ul>
     </div>
-    <div style="flex:0 0 auto;padding-left:3rem;border-left:1px solid var(--nss-light-grey);">
+    <div class="partner-logos-row__group">
      <span class="logos-label">Working in partnership with</span>
      <ul class="logos-row logos-row--funders" role="list" style="border-top:none;padding-top:0;margin-top:0.75rem;align-items:center;">
       <li><img src="images/logos/peabody-logo.png" alt="Peabody" onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Peabody</span>'" /></li>
