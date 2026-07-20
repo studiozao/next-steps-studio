@@ -45,6 +45,26 @@
  img { max-width: 100%; display: block; }
 
 
+ /* ============== CLOSED BANNER ============== */
+ .closed-banner {
+  background: var(--nss-black);
+  color: var(--nss-white);
+  text-align: center;
+  padding: 0.7rem var(--gutter);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+ }
+ .closed-banner a {
+  color: var(--nss-white);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease;
+ }
+ .closed-banner a:hover { border-color: var(--nss-white); }
+
  /* ============== NAV ============== */
  .nav {
   background: var(--nss-off-white);
@@ -1152,6 +1172,10 @@
 </head>
 <body>
 
+
+<div class="closed-banner">
+ Applications are now closed — <a href="https://www.linkedin.com/company/studiozao" target="_blank" rel="noopener noreferrer">follow us on LinkedIn</a> to hear about future cohorts.
+</div>
 
 <nav class="nav" id="nav">
  <div class="nav__inner">
